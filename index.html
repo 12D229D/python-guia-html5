@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Interactiva de Python 3 | Manual HTML5 completo</title>
+  <meta name="description" content="Guía interactiva y completa de Python 3 en HTML5. Aprende sintaxis, estructuras de datos, POO, manejo de errores y prueba ejemplos en tiempo real.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <button id="sidebar-toggle" class="icon-btn" aria-label="Abrir menú lateral">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="logo-container">
+        <svg class="python-logo" viewBox="0 0 110 110" width="36" height="36">
+          <path fill="url(#python-grad1)" d="M51.8 0c-25.2 0-23.6 10.9-23.6 10.9l.1 11.3h24.1v3.4H18.2s-18.2 2-18.2 23.8c0 21.8 15.9 21.1 15.9 21.1h9.5v-13.3s-.5-15.9 15.9-15.9h24.1s15.2.2 15.2-14.7c0-14.9-12.7-16.2-28.8-16.2zm-13 7.2c2.4 0 4.4 2 4.4 4.4s-2 4.4-4.4 4.4-4.4-2-4.4-4.4 2-4.4 4.4-4.4z"/>
+          <path fill="url(#python-grad2)" d="M58.2 110c25.2 0 23.6-10.9 23.6-10.9l-.1-11.3H57.6v-3.4h34.1s18.2-2 18.2-23.8c0-21.8-15.9-21.1-15.9-21.1h-9.5v13.3s.5 15.9-15.9 15.9H54.5s-15.2-.2-15.2 14.7c0 14.9 12.7 16.2 28.9 16.2zm13-7.2c-2.4 0-4.4-2-4.4-4.4s2-4.4 4.4-4.4 4.4 2 4.4 4.4-2 4.4-4.4 4.4z"/>
+          <defs>
+            <linearGradient id="python-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#387eb8"/>
+              <stop offset="100%" stop-color="#366994"/>
+            </linearGradient>
+            <linearGradient id="python-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffe052"/>
+              <stop offset="100%" stop-color="#ffca1d"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-text">
+          <span class="title">Python 3</span>
+          <span class="subtitle">Guía Interactiva HTML5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" placeholder="Buscar tema o código... (Ctrl+K)">
+        <span class="search-badge">Ctrl+K</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="theme-toggle" class="icon-btn" title="Cambiar Tema (Claro/Oscuro)">
+        <span class="theme-icon light-icon">☀️</span>
+        <span class="theme-icon dark-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Layout Container -->
+  <div class="app-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar" class="sidebar">
+      <nav class="nav-menu">
+        <div class="nav-section-title">Navegación General</div>
+        <ul>
+          <li><a href="#intro" class="nav-link active"><span class="icon">🚀</span> Introducción</a></li>
+          <li><a href="#fundamentos" class="nav-link"><span class="icon">🔤</span> Fundamentos</a></li>
+          <li><a href="#control-flujo" class="nav-link"><span class="icon">🔀</span> Control de Flujo</a></li>
+          <li><a href="#estructuras-datos" class="nav-link"><span class="icon">📦</span> Estructuras de Datos</a></li>
+          <li><a href="#funciones" class="nav-link"><span class="icon">⚙️</span> Funciones</a></li>
+          <li><a href="#poo" class="nav-link"><span class="icon">🏛️</span> Orientación a Objetos</a></li>
+          <li><a href="#excepciones" class="nav-link"><span class="icon">🚨</span> Manejo de Errores</a></li>
+          <li><a href="#modulos-archivos" class="nav-link"><span class="icon">📁</span> Módulos y Archivos</a></li>
+        </ul>
+
+        <div class="nav-section-title">Herramientas Interactivas</div>
+        <ul>
+          <li><a href="#playground" class="nav-link"><span class="icon">💻</span> Consola Simulada</a></li>
+          <li><a href="#quiz" class="nav-link"><span class="icon">🧠</span> Quiz de Python</a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <p>Versión de Python: <strong>3.12+</strong></p>
+        <p>Actualizado: 2026</p>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Hero Banner -->
+      <section class="hero-card">
+        <div class="hero-content">
+          <h1>Manual & Guía Interactiva de Python 3</h1>
+          <p>Domina Python desde los conceptos básicos hasta la programación orientada a objetos. Utiliza nuestros bloques interactivos para explorar, copiar código y simular la ejecución en tiempo real.</p>
+          <div class="hero-actions">
+            <a href="#fundamentos" class="btn btn-primary">Comenzar AHORA</a>
+            <a href="#playground" class="btn btn-secondary">Ir a la Consola</a>
+          </div>
+        </div>
+        <div class="hero-badge-container">
+          <div class="hero-badge">Python 3.12</div>
+          <div class="hero-badge highlight">Sintaxis Limpia</div>
+          <div class="hero-badge">Multiplataforma</div>
+        </div>
+      </section>
+
+      <!-- 1. INTRODUCCIÓN -->
+      <section id="intro" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🚀</span> 1. Introducción a Python</h2>
+        </div>
+        <p>Python es un lenguaje de programación de alto nivel, interpretado, dinámico y multiparadigma, famoso por su legibilidad y simplicidad.</p>
+        
+        <div class="cards-grid">
+          <div class="card">
+            <h3>¿Por qué elegir Python?</h3>
+            <ul>
+              <li><strong>Sintaxis limpia:</strong> Código legible parecido al pseudocódigo inglés.</li>
+              <li><strong>Versátil:</strong> Web, Ciencia de datos, IA, Automatización, Scripting y Ciberseguridad.</li>
+              <li><strong>Ecosistema gigante:</strong> Más de 400,000 paquetes en PyPI (pip).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Instalación y Consola</h3>
+            <p>Descarga Python desde <a href="https://www.python.org" target="_blank" rel="noopener">python.org</a>. Para verificar tu versión en la terminal:</p>
+            <div class="code-block" data-lang="bash">
+              <button class="copy-btn">Copiar</button>
+              <pre><code>python --version</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-block">
+          <h3>Tu primer programa: Hola Mundo</h3>
+          <p>En Python no necesitas clases complejas ni métodos <code>main()</code> para empezar. Solo usa la función <code>print()</code>:</p>
+
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>hola_mundo.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="comment"># Este es un comentario en Python</span>
+<span class="keyword">print</span>(<span class="string">"¡Hola, mundo desde Python!"</span>)
+
+<span class="comment"># Formato con f-strings</span>
+nombre = <span class="string">"Desarrollador"</span>
+<span class="keyword">print</span>(<span class="string">f"¡Bienvenido a la guía, {nombre}!"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="hola_mundo">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. FUNDAMENTOS -->
+      <section id="fundamentos" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🔤</span> 2. Fundamentos de Python</h2>
+        </div>
+
+        <div class="topic-block">
+          <h3>Variables y Tipos de Datos Principales</h3>
+          <p>Python es de <strong>tipado dinámico</strong>. No requiere declarar el tipo de variable explícitamente.</p>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Tipo</th>
+                  <th>Nombre en Python</th>
+                  <th>Ejemplo</th>
+                  <th>Descripción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>int</code></td>
+                  <td>Entero</td>
+                  <td><code>edad = 25</code></td>
+                  <td>Números enteros positivos o negativos.</td>
+                </tr>
+                <tr>
+                  <td><code>float</code></td>
+                  <td>Flotante</td>
+                  <td><code>precio = 19.99</code></td>
+                  <td>Números decimales.</td>
+                </tr>
+                <tr>
+                  <td><code>str</code></td>
+                  <td>Cadena</td>
+                  <td><code>nombre = "Python"</code></td>
+                  <td>Texto encerrado en comillas simples o dobles.</td>
+                </tr>
+                <tr>
+                  <td><code>bool</code></td>
+                  <td>Booleano</td>
+                  <td><code>es_activo = True</code></td>
+                  <td>Valor de verdad (<code>True</code> o <code>False</code>).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>variables.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="comment"># Asignación de variables</span>
+edad = <span class="number">28</span>
+estatura = <span class="number">1.75</span>
+lenguaje = <span class="string">"Python"</span>
+es_genial = <span class="keyword">True</span>
+
+<span class="comment"># Consultar el tipo de dato</span>
+<span class="keyword">print</span>(type(edad))       <span class="comment"># &lt;class 'int'&gt;</span>
+<span class="keyword">print</span>(type(estatura))   <span class="comment"># &lt;class 'float'&gt;</span>
+
+<span class="comment"># Conversión de tipos (Casting)</span>
+numero_str = <span class="string">"100"</span>
+numero_int = int(numero_str)
+<span class="keyword">print</span>(numero_int + <span class="number">50</span>)  <span class="comment"># Muestra: 150</span></code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="variables">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-block">
+          <h3>Operadores en Python</h3>
+          <div class="cards-grid">
+            <div class="card">
+              <h4>Aritméticos</h4>
+              <p><code>+</code> (suma), <code>-</code> (resta), <code>*</code> (mult), <code>/</code> (división flotante), <code>//</code> (división entera), <code>%</code> (módulo), <code>**</code> (potencia).</p>
+            </div>
+            <div class="card">
+              <h4>Comparación</h4>
+              <p><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</p>
+            </div>
+            <div class="card">
+              <h4>Lógicos</h4>
+              <p><code>and</code>, <code>or</code>, <code>not</code>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CONTROL DE FLUJO -->
+      <section id="control-flujo" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🔀</span> 3. Control de Flujo</h2>
+        </div>
+
+        <div class="topic-block">
+          <h3>Estructuras Condicionales (if, elif, else)</h3>
+          <p>La sangría (indentación) de 4 espacios es obligatoria en Python para definir bloques de código.</p>
+
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>condicionales.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code>nota = <span class="number">85</span>
+
+<span class="keyword">if</span> nota >= <span class="number">90</span>:
+    <span class="keyword">print</span>(<span class="string">"Calificación: A - Excelente"</span>)
+<span class="keyword">elif</span> nota >= <span class="number">80</span>:
+    <span class="keyword">print</span>(<span class="string">"Calificación: B - Muy Bueno"</span>)
+<span class="keyword">elif</span> nota >= <span class="number">70</span>:
+    <span class="keyword">print</span>(<span class="string">"Calificación: C - Aprobado"</span>)
+<span class="keyword">else</span>:
+    <span class="keyword">print</span>(<span class="string">"Calificación: Reprobado"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="condicionales">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="topic-block">
+          <h3>Bucle FOR y Bucle WHILE</h3>
+          
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>bucles.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="comment"># Bucle For con range()</span>
+<span class="keyword">print</span>(<span class="string">"--- Conteo con range ---"</span>)
+<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):
+    <span class="keyword">print</span>(<span class="string">f"Iteración {i}"</span>)
+
+<span class="comment"># Bucle While</span>
+<span class="keyword">print</span>(<span class="string">"--- Bucle While ---"</span>)
+contador = <span class="number">3</span>
+<span class="keyword">while</span> contador > <span class="number">0</span>:
+    <span class="keyword">print</span>(<span class="string">f"Cuenta regresiva: {contador}"</span>)
+    contador -= <span class="number">1</span>
+<span class="keyword">print</span>(<span class="string">"¡Despegue!"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="bucles">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. ESTRUCTURAS DE DATOS -->
+      <section id="estructuras-datos" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">📦</span> 4. Estructuras de Datos</h2>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Listas (<code>list</code>)</h3>
+            <p>Colecciones ordenadas y mutables. Se definen con corchetes <code>[]</code>.</p>
+            <code>frutas = ["manzana", "platano", "cereza"]</code>
+          </div>
+          <div class="card">
+            <h3>Tuplas (<code>tuple</code>)</h3>
+            <p>Colecciones ordenadas e inmutables (no se pueden modificar). Se definen con paréntesis <code>()</code>.</p>
+            <code>coordenadas = (10.5, -20.8)</code>
+          </div>
+          <div class="card">
+            <h3>Diccionarios (<code>dict</code>)</h3>
+            <p>Colecciones de pares clave-valor. Se definen con llaves <code>{}</code>.</p>
+            <code>usuario = {"nombre": "Ana", "edad": 25}</code>
+          </div>
+          <div class="card">
+            <h3>Conjuntos (<code>set</code>)</h3>
+            <p>Colecciones desordenadas de elementos únicos (sin duplicados).</p>
+            <code>numeros = {1, 2, 3, 3, 4} # {1, 2, 3, 4}</code>
+          </div>
+        </div>
+
+        <div class="topic-block">
+          <h3>Ejemplo Práctico de Estructuras de Datos</h3>
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>estructuras.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="comment"># Manipulación de Listas</span>
+lenguajes = [<span class="string">"Python"</span>, <span class="string">"JavaScript"</span>, <span class="string">"C++"</span>]
+lenguajes.append(<span class="string">"Rust"</span>)
+<span class="keyword">print</span>(<span class="string">f"Lista de lenguajes: {lenguajes}"</span>)
+
+<span class="comment"># Diccionario Clave-Valor</span>
+persona = {
+    <span class="string">"nombre"</span>: <span class="string">"Carlos"</span>,
+    <span class="string">"rol"</span>: <span class="string">"Data Engineer"</span>,
+    <span class="string">"experiencia_años"</span>: <span class="number">5</span>
+}
+<span class="keyword">print</span>(<span class="string">f"Rol de {persona['nombre']}: {persona['rol']}"</span>)
+
+<span class="comment"># List Comprehension (Comprensión de listas)</span>
+cuadrados = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]
+<span class="keyword">print</span>(<span class="string">f"Cuadrados del 1 al 5: {cuadrados}"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="estructuras">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. FUNCIONES -->
+      <section id="funciones" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">⚙️</span> 5. Funciones en Python</h2>
+        </div>
+
+        <p>Las funciones se definen con la palabra clave <code>def</code>. Soportan parámetros por defecto, argumentos con nombre y funciones lambda.</p>
+
+        <div class="topic-block">
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>funciones.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="comment"># Función estándar con parámetros por defecto</span>
+<span class="keyword">def</span> saludar(nombre, saludo=<span class="string">"Hola"</span>):
+    <span class="keyword">return</span> <span class="string">f"{saludo}, {nombre}!"</span>
+
+<span class="keyword">print</span>(saludar(<span class="string">"María"</span>))
+<span class="keyword">print</span>(saludar(<span class="string">"Juan"</span>, <span class="string">"Buenos días"</span>))
+
+<span class="comment"># Función Lambda (Anónima)</span>
+multiplicar = <span class="keyword">lambda</span> a, b: a * b
+<span class="keyword">print</span>(<span class="string">f"Resultado de 4 x 5 = {multiplicar(4, 5)}"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="funciones">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. PROGRAMACIÓN ORIENTADA A OBJETOS (POO) -->
+      <section id="poo" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🏛️</span> 6. Programación Orientada a Objetos (POO)</h2>
+        </div>
+
+        <p>Python soporta POO mediante el uso de clases, métodos, constructores <code>__init__</code> y herencia.</p>
+
+        <div class="topic-block">
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>poo.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="keyword">class</span> Vehiculo:
+    <span class="keyword">def</span> __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    <span class="keyword">def</span> obtener_info(self):
+        <span class="keyword">return</span> <span class="string">f"Vehículo: {self.marca} {self.modelo}"</span>
+
+<span class="comment"># Herencia</span>
+<span class="keyword">class</span> AutoEléctrico(Vehiculo):
+    <span class="keyword">def</span> __init__(self, marca, modelo, bateria_kwh):
+        super().__init__(marca, modelo)
+        self.bateria_kwh = bateria_kwh
+
+    <span class="keyword">def</span> estado_bateria(self):
+        <span class="keyword">return</span> <span class="string">f"Batería actual: {self.bateria_kwh} kWh"</span>
+
+<span class="comment"># Instanciar objetos</span>
+mi_tesla = AutoEléctrico(<span class="string">"Tesla"</span>, <span class="string">"Model 3"</span>, <span class="number">75</span>)
+<span class="keyword">print</span>(mi_tesla.obtener_info())
+<span class="keyword">print</span>(mi_tesla.estado_bateria())</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="poo">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. MANEJO DE ERRORES -->
+      <section id="excepciones" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🚨</span> 7. Manejo de Excepciones</h2>
+        </div>
+
+        <p>Gestiona errores durante la ejecución usando bloques <code>try</code>, <code>except</code>, <code>else</code> y <code>finally</code> para evitar que la aplicación falle inesperadamente.</p>
+
+        <div class="topic-block">
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>excepciones.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="keyword">def</span> dividir(a, b):
+    <span class="keyword">try</span>:
+        resultado = a / b
+    <span class="keyword">except</span> ZeroDivisionError:
+        <span class="keyword">return</span> <span class="string">"Error: No se puede dividir entre cero."</span>
+    <span class="keyword">except</span> TypeError:
+        <span class="keyword">return</span> <span class="string">"Error: Ingresa números válidos."</span>
+    <span class="keyword">else</span>:
+        <span class="keyword">return</span> <span class="string">f"Resultado exitoso: {resultado}"</span>
+    <span class="keyword">finally</span>:
+        <span class="keyword">print</span>(<span class="string">"Operación de división finalizada."</span>)
+
+<span class="keyword">print</span>(dividir(<span class="number">10</span>, <span class="number">2</span>))
+<span class="keyword">print</span>(dividir(<span class="number">5</span>, <span class="number">0</span>))</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="excepciones">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. MÓDULOS Y ARCHIVOS -->
+      <section id="modulos-archivos" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">📁</span> 8. Módulos y Archivos</h2>
+        </div>
+
+        <div class="topic-block">
+          <h3>Módulos de la Biblioteca Estándar</h3>
+          <p>Python incluye potentes módulos por defecto como <code>math</code>, <code>random</code>, <code>datetime</code> y <code>json</code>.</p>
+
+          <div class="code-block" data-lang="python">
+            <div class="code-header">
+              <span>modulos.py</span>
+              <button class="copy-btn">Copiar</button>
+            </div>
+            <pre><code><span class="keyword">import</span> math
+<span class="keyword">import</span> random
+<span class="keyword">from</span> datetime <span class="keyword">import</span> datetime
+
+<span class="keyword">print</span>(<span class="string">f"Raíz cuadrada de 16: {math.sqrt(16)}"</span>)
+<span class="keyword">print</span>(<span class="string">f"Número aleatorio del 1 al 100: {random.randint(1, 100)}"</span>)
+<span class="keyword">print</span>(<span class="string">f"Fecha actual: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"</span>)</code></pre>
+            <div class="code-actions">
+              <button class="btn btn-sm btn-run" data-snippet="modulos">▶️ Probar en Consola</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONSOLA SIMULADA (PLAYGROUND) -->
+      <section id="playground" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">💻</span> Consola Simulada / Playground</h2>
+        </div>
+        <p>Selecciona un código de la lista o ejecuta tus ejemplos para ver la salida interactiva en tiempo real.</p>
+
+        <div class="playground-container">
+          <div class="playground-controls">
+            <label for="snippet-select"><strong>Seleccionar Ejemplo:</strong></label>
+            <select id="snippet-select" class="form-select">
+              <option value="hola_mundo">1. Hola Mundo</option>
+              <option value="variables">2. Variables y Tipos</option>
+              <option value="condicionales">3. Condicionales</option>
+              <option value="bucles">4. Bucles</option>
+              <option value="estructuras">5. Estructuras de Datos</option>
+              <option value="funciones">6. Funciones</option>
+              <option value="poo">7. POO</option>
+              <option value="excepciones">8. Manejo de Errores</option>
+              <option value="modulos">9. Módulos Estándar</option>
+            </select>
+            <button id="run-btn" class="btn btn-primary">▶️ Ejecutar Código</button>
+            <button id="clear-terminal" class="btn btn-secondary">🧹 Limpiar Consola</button>
+          </div>
+
+          <div class="playground-grid">
+            <div class="editor-pane">
+              <div class="pane-title">Entrada de Código Python</div>
+              <textarea id="code-input" spellcheck="false" readonly></textarea>
+            </div>
+            <div class="terminal-pane">
+              <div class="pane-title">Salida de la Terminal (Python 3.12 REPL)</div>
+              <div id="terminal-output" class="terminal-body">
+                <span class="terminal-prompt">Python 3.12.0 (main, Oct 2026) [Guía Interactiva HTML5]</span>
+                <span class="terminal-prompt">Escribe o selecciona un ejemplo y presiona 'Ejecutar Código'.</span>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ INTERACTIVO -->
+      <section id="quiz" class="content-section">
+        <div class="section-header">
+          <h2><span class="icon">🧠</span> Quiz Interactivo de Python</h2>
+        </div>
+        <p>Ponte a prueba respondiendo a las siguientes preguntas sobre Python:</p>
+
+        <div class="quiz-container">
+          <div id="quiz-box">
+            <!-- Quiz questions will be dynamically rendered here -->
+          </div>
+          <div class="quiz-controls">
+            <button id="quiz-submit-btn" class="btn btn-primary">Enviar Respuestas</button>
+            <button id="quiz-reset-btn" class="btn btn-secondary" style="display:none;">Reiniciar Quiz</button>
+          </div>
+          <div id="quiz-result" class="quiz-result-box" style="display:none;"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p>© 2026 Guía Interactiva de Python 3 - Proyecto HTML5 / CSS3 / Vanilla JS</p>
+      <div class="footer-links">
+        <a href="https://docs.python.org/es/3/" target="_blank" rel="noopener">Documentación Oficial de Python</a>
+        <a href="#intro">Ir Arriba ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
